@@ -19,6 +19,15 @@ describe('example test', () => {
     it("1,2,3,4,5,6,7,8,9,10 input should return the 55", () => {
         let example: Example = new Example();
         expect(example.sum("1,2,3,4,5,6,7,8,9,10")).toBe(55);
-    })     
-    
+    })
+
+    it("1000,333,4 input should return the 1337", () => {
+        let example: Example = new Example();
+        expect(example.sum("1000,333,4")).toBe(1337);
+    })
+
+    it("-5,5 input should return the 0", () => {
+        let example: Example = new Example();
+        expect(example.sum("-5,5")).toBe(0);
+    })
 })

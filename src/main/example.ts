@@ -1,7 +1,13 @@
+import { split } from "ts-node";
+
 export class Example {
     sum(numbers: string) {
 
-        return !numbers ? 0 : Number(numbers)
+        if(!numbers) {
+            return 0;
+        }
 
-    }
+        const split_numbers = numbers.split(',').map((num) => Number(num));
+        return split_numbers.reduce((a,b) => a + b, 0);
+    }   
 }

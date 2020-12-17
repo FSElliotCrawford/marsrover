@@ -10,5 +10,15 @@ describe('example test', () => {
         let example: Example = new Example();
         expect(example.sum("5")).toBe(5);
     })
+
+    it("1,2 input should return the 3", () => {
+        let example: Example = new Example();
+        expect(example.sum("1,2")).toBe(3);
+    }) 
+    
+    it("1,2,3,4,5,6,7,8,9,10 input should return the 55", () => {
+        let example: Example = new Example();
+        expect(example.sum("1,2,3,4,5,6,7,8,9,10")).toBe(55);
+    })     
     
 })

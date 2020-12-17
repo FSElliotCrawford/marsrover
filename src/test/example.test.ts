@@ -30,4 +30,8 @@ describe('example test', () => {
         let example: Example = new Example();
         expect(example.sum("-5,5")).toBe(0);
     })
+    it("1\n2 input should return the 3", () => {
+        let example: Example = new Example();
+        expect(example.sum("1\n2")).toBe(3);
+    }) 
 })

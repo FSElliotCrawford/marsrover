@@ -4,9 +4,9 @@ export class Example {
         if(!input) {
             return 0;
         }
-        
 
-        const split_numbers = input.split(',').map((num) => Number(num));
+
+        const split_numbers = input.split('\n').join(',').split(',').map((num) => Number(num));
         return split_numbers.reduce((a,b) => a + b, 0);
     }   
 }

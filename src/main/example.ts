@@ -1,5 +1,7 @@
 export class Example {
     sum(numbers: string) {
-        return 0;
+
+        return !numbers ? 0 : Number(numbers)
+
     }
 }

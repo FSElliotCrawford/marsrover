@@ -5,5 +5,10 @@ describe('example test', () => {
         let example: Example = new Example();
         expect(example.sum("")).toBe(0);
     })
+
+    it("Single input should return the value", () => {
+        let example: Example = new Example();
+        expect(example.sum("5")).toBe(5);
+    })
     
 })

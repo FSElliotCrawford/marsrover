@@ -1,8 +1,9 @@
 import {Example} from "../main/example";
 
 describe('example test', () => {
-    it("should give sum of a + b when adding a and b", () => {
+    it("Empty string should return 0", () => {
         let example: Example = new Example();
-        expect(example.add(1, 2)).toBe(3);
+        expect(example.sum("")).toBe(0);
     })
+    
 })

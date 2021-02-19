@@ -1,43 +1,7 @@
 import {Example} from "../main/example";
 
 describe('example test', () => {
-    it("Empty string should return 0", () => {
-        let example: Example = new Example();
-        expect(example.sum("")).toBe(0);
+    it("should", () => {
+
     })
-
-    it("Single input should return the value", () => {
-        let example: Example = new Example();
-        expect(example.sum("5")).toBe(5);
-    })
-
-    it("1,2 input should return the 3", () => {
-        let example: Example = new Example();
-        expect(example.sum("1,2")).toBe(3);
-    }) 
-    
-    it("1,2,3,4,5,6,7,8,9,10 input should return the 55", () => {
-        let example: Example = new Example();
-        expect(example.sum("1,2,3,4,5,6,7,8,9,10")).toBe(55);
-    })
-
-    it("1000,333,4 input should return the 1337", () => {
-        let example: Example = new Example();
-        expect(example.sum("1000,333,4")).toBe(1337);
-    })
-
-    it("-5,5 input should return the 0", () => {
-        let example: Example = new Example();
-        expect(example.sum("-5,5")).toBe(0);
-    })
-
-    it("1\n2 input should return the 3", () => {
-        let example: Example = new Example();
-        expect(example.sum("1\n2")).toBe(3);
-    }) 
-
-    it("1\n2,3 input should return the 6", () => {
-        let example: Example = new Example();
-        expect(example.sum("1\n2,3")).toBe(6);
-    }) 
 })

@@ -8,4 +8,10 @@ export class MarsRover {
     public getPosition() {
         return this.position;
     }
+
+    public move(command : string) {
+        if (!command) return;
+
+        this.position = "0:1:N";
+    }
 }

@@ -29,9 +29,12 @@ class Position {
         if(command === "M") {
             this.move();
         }
+        if(command === "R" || command === 'L') {
+            this.turn(command === 'R' ? 1 : -1);
+        }
     }
 
-    public move() {
+    private move() {
         switch(this.direction) {
             case 0: // N
                 this.y++;
@@ -46,6 +49,16 @@ class Position {
                 this.x--;
                 break;
         }
+    }
+
+    private turn(turnValue : number) {
+        let newDirection = this.direction + turnValue;
+        if (newDirection < 0) {
+            newDirection = 3;
+        } else if (newDirection > 3) {
+            newDirection = 0;
+        }
+        this.direction = newDirection;
     }
 }
 export class MarsRover {

@@ -40,4 +40,10 @@ describe("When giving the rover instructions", () => {
         rover.move("R");
         expect(rover.getPosition()).toBe("0:0:E");
     })
+
+    it("should move to 2:2:E when sending MMRMM", () => {
+        const rover = new MarsRover();
+        rover.move("MMRMM");
+        expect(rover.getPosition()).toBe("2:2:E");
+    })
 })

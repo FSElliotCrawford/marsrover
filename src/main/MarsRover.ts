@@ -1,31 +1,33 @@
-class CommandHelper {
-    private symbol = ["M", "L", "R"];
+type AllowedDirections = "N" | "E" | "S" | "W";
+type AllowedCommand = "M" | "L" | "R";
 
-    public isValid(command : string) : boolean {
+class CommandHelper {
+    private symbol : AllowedCommand[] = ["M", "L", "R"];
+
+    public isValid(command : any) : boolean {
         return this.symbol.indexOf(command) !== -1 ? true : false;
     }
 }
 
-const directions = [
-    "N",
-    "E",
-    "S",
-    "W"
-];
+const directions : AllowedDirections[] = ["N","E","S","W"];
 class Position {
     private direction = 0;
     private x = 0;
     private y = 0
 
-    public getPosition() {
-        return this.x + ":" + this.y + ":" + this.getDirection();
+    public getPosition() : string {
+        return [
+            this.x,
+            this.y,
+            this.getDirection()
+        ].join(":");
     }
 
     private getDirection() {
         return directions[this.direction];
     }
 
-    public execute(command: string) {
+    public execute(command: AllowedCommand) {
         if(command === "M") {
             this.move();
         }
@@ -35,20 +37,26 @@ class Position {
     }
 
     private move() {
+
+        let newY = this.y;
+        let newX = this.x;
         switch(this.direction) {
             case 0: // N
-                this.y++;
+                newY = newY + 1;
                 break;
             case 1: // E
-                this.x++;
+                newX = newX + 1;
                 break;
             case 2: // S
-                this.y--;
+                newY = newY - 1;
                 break;
             case 3: // W
-                this.x--;
+                newX = newX - 1;
                 break;
         }
+
+        this.y = (newY + 10)%10;
+        this.x = (newX + 10)%10;
     }
 
     private turn(turnValue : number) {
@@ -61,13 +69,10 @@ class Position {
         this.direction = newDirection;
     }
 }
+
 export class MarsRover {
     private command_helper = new CommandHelper;
     private position = new Position;
-
-    constructor() {
-
-    }
 
     public getPosition() {
         return this.position.getPosition();
@@ -77,13 +82,14 @@ export class MarsRover {
         const commands = command.split("");
 
         for (const command of commands) {
+            if (!this.command_helper.isValid(command)) {
+                return false;
+            }
             this.moveRover(command);
         }
     }
 
     private moveRover(command: string) {
-        if (!this.command_helper.isValid(command)) return;
-
-        this.position.execute(command);
+        this.position.execute(command as AllowedCommand);
     }
 }

@@ -41,9 +41,7 @@ class Position {
             {coord: "y", action: -1},
             {coord: "x", action: -1},
         ];
-
         const {coord, action} = moveActions[this.direction];
-
         this[coord] = this.rangeWrap(this[coord] + action, this.plateau);
     }
 

@@ -23,4 +23,21 @@ describe("When giving the rover instructions", () => {
         rover.move("M");
         expect(rover.getPosition()).toBe("0:1:N");
     })
+    it("should move to 0:2:N when sending MM", () => {
+        const rover = new MarsRover();
+        rover.move("MM");
+        expect(rover.getPosition()).toBe("0:2:N");
+    })
+
+    it("should move to 0:4:N when sending MMMM", () => {
+        const rover = new MarsRover();
+        rover.move("MMMM");
+        expect(rover.getPosition()).toBe("0:4:N");
+    })
+
+    it("should move to 0:0:E when sending R", () => {
+        const rover = new MarsRover();
+        rover.move("R");
+        expect(rover.getPosition()).toBe("0:0:E");
+    })
 })

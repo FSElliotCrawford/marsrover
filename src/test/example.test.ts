@@ -92,3 +92,35 @@ describe("When giving the rover loads of instructions", () => {
         expect(rover.getPosition()).toBe("7:6:W");
     })
 });
+
+
+describe("When using custom commands", () => {
+    it("should move and rotate at the same time", () => {
+        const rover = new MarsRover();
+        rover.addCommand("D", 2, 1);
+        rover.move("D");
+        expect(rover.getPosition()).toBe("0:2:E");
+    })
+
+    it("should wrap", () => {
+        const rover = new MarsRover();
+        rover.addCommand("E", 12, 0);
+        rover.move("E");
+        expect(rover.getPosition()).toBe("0:2:N");
+    })
+
+    it("should override M with 5", () => {
+        const rover = new MarsRover();
+        rover.addCommand("M", 5, 0);
+        rover.move("M");
+        expect(rover.getPosition()).toBe("0:5:N");
+    })
+
+    it("should move 1 then override M with 5", () => {
+        const rover = new MarsRover();
+        rover.move("M");
+        rover.addCommand("M", 5, 0);
+        rover.move("M");
+        expect(rover.getPosition()).toBe("0:6:N");
+    })
+})

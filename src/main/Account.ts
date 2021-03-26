@@ -1,16 +1,21 @@
+import { Vault, SystemDate } from "./Vault"
 export class Account
 {
-    constructor() {
+    vault: Vault
 
+    constructor(SystemDate : SystemDate) {
+        this.vault = new Vault(SystemDate)
     }
 
-    deposit(int: number) {
-        throw Error("Not implemented deposit")
+    deposit(amount: number) {
+        this.vault.deposit(amount);
     }
-    withdraw(int: number) {
-        throw Error("Not implemented Withdraw")
+
+    withdraw(amount: number) {
+        this.vault.withdraw(amount);
     }
+
     produceStatement() {
-        throw Error("Not implemented produce Statement")
+        return this.vault.getStatement();
     }
 }
